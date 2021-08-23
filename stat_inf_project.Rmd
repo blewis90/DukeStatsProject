@@ -33,11 +33,28 @@ load("gss.Rdata")
 
 ## Part 1: Data
 
+This data is from the General Social Survey (GSS). This is a nationally representative survey of adults in the United States and has been conducted since 1972. This data has been provided, prepared and cleaned by Duke University to use for a project for an Inferential Statistics course. This data uses a sample size of n= 57061 and 114 variables. 
+
+2 pt for correct reasoning for generabizability – Sampling is random in this survey.
+
+1 pt for correct reasoning for causality - No random assignment of respondents was involed to the variables surveyed.
+
+
+
+
 
 * * *
 
 ## Part 2: Research question
 
+
+
+why this is of interest to the author / audience in a non-casual way - One area I have always been interested in is politics, and how political idealolgies craft how we view the world. I grew up in an area with high poverty rate. As a result, I'm curious how salary and political views intersect. As a result, I have the following question- Is there a difference in average salary between republicans and democrats?
+
+Should be well defined / not vague
+
+H0 - There is no difference in mean salary between political parties
+H1 - There is a correlated difference in mean salary with poltiical parties
 
 
 * * *
@@ -48,7 +65,24 @@ NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk"
 button (green button with orange arrow) above. Make sure that your code is visible
 in the project you submit. Delete this note when before you submit your work.
 
+```{r}
+summary(gss)
 
+```
+
+```{r}
+summary(gss$coninc)
+sd(gss$coninc, na.rm = TRUE)
+hist(gss$coninc, main = "Histogram of Income", xlab = "income")
+```
+
+```{r}
+tapply(gss$coninc, gss$polviews, summary)
+```
+
+```{r}
+boxplot(gss$coninc ~ gss$polviews)
+```
 
 ## Part 4: Inference
 
